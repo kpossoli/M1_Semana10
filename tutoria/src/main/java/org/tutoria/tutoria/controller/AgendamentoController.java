@@ -28,6 +28,26 @@ public class AgendamentoController {
         return ResponseEntity.ok(service.buscarPorId(id));
     }
 
+    @GetMapping("aluno-id/{alunoId}")
+    public ResponseEntity<List<AgendaEntity>> getAlunoId(@PathVariable Long alunoId) {
+        return ResponseEntity.ok(service.buscarPorAlunoId(alunoId));
+    }
+
+    @GetMapping("aluno-id/{alunoId}/futuros")
+    public ResponseEntity<List<AgendaEntity>> getProximosPorAlunoId(@PathVariable Long alunoId) {
+        return ResponseEntity.ok(service.buscarProximosPorAlunoId(alunoId));
+    }
+
+    @GetMapping("tutor-id/{tutorId}")
+    public ResponseEntity<List<AgendaEntity>> getTutorId(@PathVariable Long tutorId) {
+        return ResponseEntity.ok(service.buscarPorTutorId(tutorId));
+    }
+
+    @GetMapping("tutor-id/{tutorId}/futuros")
+    public ResponseEntity<List<AgendaEntity>> getProximosPorTutorId(@PathVariable Long tutorId) {
+        return ResponseEntity.ok(service.buscarProximosPorTutorId(tutorId));
+    }
+
     @PostMapping
     public ResponseEntity<AgendaEntity> post(@RequestBody AgendaEntity request) {
         return ResponseEntity.status(HttpStatus.CREATED)
@@ -48,3 +68,4 @@ public class AgendamentoController {
     }
 
 }
+
