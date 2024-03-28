@@ -28,6 +28,11 @@ public class MaterialController {
         return ResponseEntity.ok(service.buscarPorId(id));
     }
 
+    @GetMapping("agenda-id/{agendaId}")
+    public ResponseEntity<List<MaterialEntity>> getAgendaId(@PathVariable Long agendaId) {
+        return ResponseEntity.ok(service.buscarPorAgenda(agendaId));
+    }
+
     @PostMapping
     public ResponseEntity<MaterialEntity> post(@RequestBody MaterialEntity request) {
         return ResponseEntity.status(HttpStatus.CREATED)

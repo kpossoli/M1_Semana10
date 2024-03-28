@@ -10,6 +10,8 @@ public interface MaterialService {
 
     MaterialEntity buscarPorId(Long id);
 
+    List<MaterialEntity> buscarPorAgenda(Long agendaId);
+
     MaterialEntity criar(MaterialEntity entity);
 
     MaterialEntity alterar(Long id, MaterialEntity entity);
